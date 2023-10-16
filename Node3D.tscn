@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://mocr4k61n2rb"]
+
+[ext_resource type="Script" path="res://ColorRect.gd" id="3_kf3s3"]
+[ext_resource type="Script" path="res://BoardGridCreating.gd" id="4_a0yh5"]
+[ext_resource type="Script" path="res://MovesCalculator.gd" id="4_oqsdl"]
+
+[sub_resource type="Environment" id="Environment_8vt31"]
+background_mode = 2
+background_color = Color(0.968627, 0.67451, 0.709804, 1)
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00281143, 0.101421, -0.080492)
+metadata/_edit_horizontal_guides_ = [0.0, 15.0, 60.0, 75.0]
+metadata/_edit_vertical_guides_ = [20.0]
+
+[node name="Camera3D" type="Camera3D" parent="." groups=["Camera"]]
+transform = Transform3D(1, -5.82171e-16, 2.59199e-16, 2.59199e-16, 0.743145, 0.669131, -5.82171e-16, -0.669131, 0.743145, 0, 24, 30)
+current = true
+
+[node name="Control" type="Control" parent="Camera3D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 266.0
+offset_bottom = 168.0
+script = ExtResource("4_a0yh5")
+
+[node name="ColorRect" type="ColorRect" parent="Camera3D/Control"]
+layout_mode = 0
+offset_right = 201.0
+offset_bottom = 129.0
+color = Color(1, 0, 0, 0.415686)
+script = ExtResource("3_kf3s3")
+
+[node name="Button" type="Button" parent="Camera3D/Control"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 75.0
+offset_right = 190.0
+offset_bottom = 112.0
+text = "Generate Game"
+
+[node name="LineEdit" type="LineEdit" parent="Camera3D/Control"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 17.0
+offset_right = 391.0
+offset_bottom = 59.0
+text = "FEN Chess Notation Starting Position"
+placeholder_text = "rnbqkbnrpppppppp8888PPPPPPPPRNBQKBNR"
+
+[node name="Use recommended" type="Button" parent="Camera3D/Control"]
+layout_mode = 0
+offset_left = 399.0
+offset_top = 17.0
+offset_right = 557.0
+offset_bottom = 59.0
+tooltip_text = "Standard Chess Game"
+theme_override_colors/font_color = Color(1, 0.611765, 0.796078, 1)
+text = "Use Recommended"
+
+[node name="Board" type="Node3D" parent="Camera3D/Control"]
+script = ExtResource("4_oqsdl")
+
+[node name="TheWorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8vt31")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0166497, 0.999861, 0, -0.999861, -0.0166497, 1.18142, 11.2826, -0.305331)
+
+[connection signal="pressed" from="Camera3D/Control/Button" to="Camera3D/Control" method="_on_button_pressed"]
+[connection signal="pressed" from="Camera3D/Control/Button" to="Camera3D/Control/Button" method="_on_pressed"]
+[connection signal="pressed" from="Camera3D/Control/Use recommended" to="Camera3D/Control" method="_on_use_recommended_pressed"]
+[connection signal="pressed" from="Camera3D/Control/Use recommended" to="Camera3D/Control/Use recommended" method="_on_pressed"]

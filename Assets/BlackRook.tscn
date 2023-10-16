@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://2ld8j7jjqlyw"]
+
+[ext_resource type="ArrayMesh" uid="uid://0267ifbo1xds" path="res://Assets/Mesh/Rook.res" id="1_ea4ho"]
+[ext_resource type="Material" uid="uid://bjpsreuognjb3" path="res://Assets/Surfaces/Black.tres" id="2_fyjve"]
+
+[node name="BlackRook" type="MeshInstance3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.08165e-12, 1, 2.08165e-12)
+mesh = ExtResource("1_ea4ho")
+surface_material_override/0 = ExtResource("2_fyjve")

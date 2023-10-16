@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://5miec5ms3mb0"]
+
+[ext_resource type="PackedScene" uid="uid://dakbc8bw2jydq" path="res://Assets/Mesh/selected.glb" id="1_pkce5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i53mi"]
+transparency = 4
+albedo_color = Color(1, 0.635294, 0.466667, 0.364706)
+
+[node name="selected" instance=ExtResource("1_pkce5")]
+
+[node name="Cylinder" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_i53mi")

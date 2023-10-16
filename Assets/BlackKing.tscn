@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://3ky8ji235ox2"]
+
+[ext_resource type="ArrayMesh" uid="uid://b3ecs66ip3pmx" path="res://Assets/Mesh/King.res" id="1_jb3d0"]
+[ext_resource type="Material" uid="uid://bjpsreuognjb3" path="res://Assets/Surfaces/Black.tres" id="2_63g66"]
+
+[node name="BlackKing" type="MeshInstance3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.08165e-12, 1, 2.08165e-12)
+mesh = ExtResource("1_jb3d0")
+surface_material_override/0 = ExtResource("2_63g66")

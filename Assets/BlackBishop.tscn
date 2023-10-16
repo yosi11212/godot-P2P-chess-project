@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3srduqtlja2m"]
+
+[ext_resource type="ArrayMesh" uid="uid://bm1od4djiokya" path="res://Assets/Mesh/Bishop.res" id="1_ypqj5"]
+[ext_resource type="Material" uid="uid://bjpsreuognjb3" path="res://Assets/Surfaces/Black.tres" id="2_norrh"]
+
+[node name="BlackBishop" type="MeshInstance3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.08165e-12, 1, 2.08165e-12)
+mesh = ExtResource("1_ypqj5")
+surface_material_override/0 = ExtResource("2_norrh")
