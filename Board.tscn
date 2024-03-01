@@ -1,0 +1,438 @@
+[gd_scene load_steps=16 format=3 uid="uid://de8v6ae4lp6em"]
+
+[ext_resource type="Script" path="res://MovesCalculator.gd" id="1_47ebs"]
+[ext_resource type="PackedScene" uid="uid://cwmgtqaooyclg" path="res://Assets/Mesh/WhiteBoardGridPiece.tscn" id="2_811jv"]
+[ext_resource type="PackedScene" uid="uid://2ld8j7jjqlyw" path="res://Assets/BlackRook.tscn" id="3_p1f1c"]
+[ext_resource type="PackedScene" uid="uid://el3ul45orkp" path="res://Assets/Mesh/BlackBoardGridPiece.tscn" id="4_h18ie"]
+[ext_resource type="PackedScene" uid="uid://dfb706fd0npbc" path="res://Assets/BlackKnight.tscn" id="5_rc8c3"]
+[ext_resource type="PackedScene" uid="uid://b3srduqtlja2m" path="res://Assets/BlackBishop.tscn" id="6_pdfem"]
+[ext_resource type="PackedScene" uid="uid://c0mghx8fmk2l2" path="res://Assets/BlackQueen.tscn" id="7_bsuc5"]
+[ext_resource type="PackedScene" uid="uid://3ky8ji235ox2" path="res://Assets/BlackKing.tscn" id="8_nv0t1"]
+[ext_resource type="PackedScene" uid="uid://1areki2kd25k" path="res://Assets/BlackPawn.tscn" id="9_l1y5g"]
+[ext_resource type="PackedScene" uid="uid://bk6ksx711l2j3" path="res://Assets/WhitePawn.tscn" id="10_unfmt"]
+[ext_resource type="PackedScene" uid="uid://dp8rn85ti1x5h" path="res://Assets/WhiteRook.tscn" id="11_jlxvu"]
+[ext_resource type="PackedScene" uid="uid://bknf8vitakoyi" path="res://Assets/WhiteKnight.tscn" id="12_xpxvo"]
+[ext_resource type="PackedScene" uid="uid://c0t4jcctppkci" path="res://Assets/WhiteBishop.tscn" id="13_ahl8t"]
+[ext_resource type="PackedScene" uid="uid://cr72qi5ykuyoi" path="res://Assets/WhiteQueen.tscn" id="14_sqvwj"]
+[ext_resource type="PackedScene" uid="uid://bwj8v7ppv7bie" path="res://Assets/WhiteKing.tscn" id="15_h2ciq"]
+
+[node name="Board" type="Node3D"]
+script = ExtResource("1_47ebs")
+
+[node name="1" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -21, -3, -21)
+metadata/Piece = "r"
+
+[node name="GamePiece" parent="1" instance=ExtResource("3_p1f1c")]
+metadata/BelongsTo = &"1"
+metadata/Type = "r"
+metadata/Moves = 0
+
+[node name="2" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -15, -3, -21)
+metadata/Piece = "n"
+
+[node name="GamePiece" parent="2" instance=ExtResource("5_rc8c3")]
+metadata/BelongsTo = &"2"
+metadata/Type = "n"
+metadata/Moves = 0
+
+[node name="3" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9, -3, -21)
+metadata/Piece = "b"
+
+[node name="GamePiece" parent="3" instance=ExtResource("6_pdfem")]
+metadata/BelongsTo = &"3"
+metadata/Type = "b"
+metadata/Moves = 0
+
+[node name="4" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3, -3, -21)
+metadata/Piece = "q"
+
+[node name="GamePiece" parent="4" instance=ExtResource("7_bsuc5")]
+metadata/BelongsTo = &"4"
+metadata/Type = "q"
+metadata/Moves = 0
+
+[node name="5" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 3, -3, -21)
+metadata/Piece = "k"
+
+[node name="GamePiece" parent="5" instance=ExtResource("8_nv0t1")]
+metadata/BelongsTo = &"5"
+metadata/Type = "k"
+metadata/Moves = 0
+
+[node name="6" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 9, -3, -21)
+metadata/Piece = "b"
+
+[node name="GamePiece" parent="6" instance=ExtResource("6_pdfem")]
+metadata/BelongsTo = &"6"
+metadata/Type = "b"
+metadata/Moves = 0
+
+[node name="7" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15, -3, -21)
+metadata/Piece = "n"
+
+[node name="GamePiece" parent="7" instance=ExtResource("5_rc8c3")]
+metadata/BelongsTo = &"7"
+metadata/Type = "n"
+metadata/Moves = 0
+
+[node name="8" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 21, -3, -21)
+metadata/Piece = "r"
+
+[node name="GamePiece" parent="8" instance=ExtResource("3_p1f1c")]
+metadata/BelongsTo = &"8"
+metadata/Type = "r"
+metadata/Moves = 0
+
+[node name="9" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -21, -3, -15)
+metadata/Piece = "p"
+
+[node name="GamePiece" parent="9" instance=ExtResource("9_l1y5g")]
+metadata/BelongsTo = &"9"
+metadata/Type = "p"
+metadata/Moves = 0
+
+[node name="10" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -15, -3, -15)
+metadata/Piece = "p"
+
+[node name="GamePiece" parent="10" instance=ExtResource("9_l1y5g")]
+metadata/BelongsTo = &"10"
+metadata/Type = "p"
+metadata/Moves = 0
+
+[node name="11" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9, -3, -15)
+metadata/Piece = "p"
+
+[node name="GamePiece" parent="11" instance=ExtResource("9_l1y5g")]
+metadata/BelongsTo = &"11"
+metadata/Type = "p"
+metadata/Moves = 0
+
+[node name="12" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3, -3, -15)
+metadata/Piece = "p"
+
+[node name="GamePiece" parent="12" instance=ExtResource("9_l1y5g")]
+metadata/BelongsTo = &"12"
+metadata/Type = "p"
+metadata/Moves = 0
+
+[node name="13" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 3, -3, -15)
+metadata/Piece = "p"
+
+[node name="GamePiece" parent="13" instance=ExtResource("9_l1y5g")]
+metadata/BelongsTo = &"13"
+metadata/Type = "p"
+metadata/Moves = 0
+
+[node name="14" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 9, -3, -15)
+metadata/Piece = "p"
+
+[node name="GamePiece" parent="14" instance=ExtResource("9_l1y5g")]
+metadata/BelongsTo = &"14"
+metadata/Type = "p"
+metadata/Moves = 0
+
+[node name="15" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15, -3, -15)
+metadata/Piece = "p"
+
+[node name="GamePiece" parent="15" instance=ExtResource("9_l1y5g")]
+metadata/BelongsTo = &"15"
+metadata/Type = "p"
+metadata/Moves = 0
+
+[node name="16" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 21, -3, -15)
+metadata/Piece = "p"
+
+[node name="GamePiece" parent="16" instance=ExtResource("9_l1y5g")]
+metadata/BelongsTo = &"16"
+metadata/Type = "p"
+metadata/Moves = 0
+
+[node name="17" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -21, -3, -9)
+metadata/Piece = " "
+
+[node name="18" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -15, -3, -9)
+metadata/Piece = " "
+
+[node name="19" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9, -3, -9)
+metadata/Piece = " "
+
+[node name="20" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3, -3, -9)
+metadata/Piece = " "
+
+[node name="21" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 3, -3, -9)
+metadata/Piece = " "
+
+[node name="22" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 9, -3, -9)
+metadata/Piece = " "
+
+[node name="23" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15, -3, -9)
+metadata/Piece = " "
+
+[node name="24" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 21, -3, -9)
+metadata/Piece = " "
+
+[node name="25" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -21, -3, -3)
+metadata/Piece = " "
+
+[node name="26" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -15, -3, -3)
+metadata/Piece = " "
+
+[node name="27" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9, -3, -3)
+metadata/Piece = " "
+
+[node name="28" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3, -3, -3)
+metadata/Piece = " "
+
+[node name="29" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 3, -3, -3)
+metadata/Piece = " "
+
+[node name="30" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 9, -3, -3)
+metadata/Piece = " "
+
+[node name="31" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15, -3, -3)
+metadata/Piece = " "
+
+[node name="32" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 21, -3, -3)
+metadata/Piece = " "
+
+[node name="33" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -21, -3, 3)
+metadata/Piece = " "
+
+[node name="34" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -15, -3, 3)
+metadata/Piece = " "
+
+[node name="35" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9, -3, 3)
+metadata/Piece = " "
+
+[node name="36" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3, -3, 3)
+metadata/Piece = " "
+
+[node name="37" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 3, -3, 3)
+metadata/Piece = " "
+
+[node name="38" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 9, -3, 3)
+metadata/Piece = " "
+
+[node name="39" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15, -3, 3)
+metadata/Piece = " "
+
+[node name="40" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 21, -3, 3)
+metadata/Piece = " "
+
+[node name="41" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -21, -3, 9)
+metadata/Piece = " "
+
+[node name="42" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -15, -3, 9)
+metadata/Piece = " "
+
+[node name="43" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9, -3, 9)
+metadata/Piece = " "
+
+[node name="44" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3, -3, 9)
+metadata/Piece = " "
+
+[node name="45" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 3, -3, 9)
+metadata/Piece = " "
+
+[node name="46" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 9, -3, 9)
+metadata/Piece = " "
+
+[node name="47" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15, -3, 9)
+metadata/Piece = " "
+
+[node name="48" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 21, -3, 9)
+metadata/Piece = " "
+
+[node name="49" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -21, -3, 15)
+metadata/Piece = "P"
+
+[node name="GamePiece" parent="49" instance=ExtResource("10_unfmt")]
+metadata/BelongsTo = &"49"
+metadata/Type = "P"
+metadata/Moves = 0
+
+[node name="50" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -15, -3, 15)
+metadata/Piece = "P"
+
+[node name="GamePiece" parent="50" instance=ExtResource("10_unfmt")]
+metadata/BelongsTo = &"50"
+metadata/Type = "P"
+metadata/Moves = 0
+
+[node name="51" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9, -3, 15)
+metadata/Piece = "P"
+
+[node name="GamePiece" parent="51" instance=ExtResource("10_unfmt")]
+metadata/BelongsTo = &"51"
+metadata/Type = "P"
+metadata/Moves = 0
+
+[node name="52" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3, -3, 15)
+metadata/Piece = "P"
+
+[node name="GamePiece" parent="52" instance=ExtResource("10_unfmt")]
+metadata/BelongsTo = &"52"
+metadata/Type = "P"
+metadata/Moves = 0
+
+[node name="53" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 3, -3, 15)
+metadata/Piece = "P"
+
+[node name="GamePiece" parent="53" instance=ExtResource("10_unfmt")]
+metadata/BelongsTo = &"53"
+metadata/Type = "P"
+metadata/Moves = 0
+
+[node name="54" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 9, -3, 15)
+metadata/Piece = "P"
+
+[node name="GamePiece" parent="54" instance=ExtResource("10_unfmt")]
+metadata/BelongsTo = &"54"
+metadata/Type = "P"
+metadata/Moves = 0
+
+[node name="55" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15, -3, 15)
+metadata/Piece = "P"
+
+[node name="GamePiece" parent="55" instance=ExtResource("10_unfmt")]
+metadata/BelongsTo = &"55"
+metadata/Type = "P"
+metadata/Moves = 0
+
+[node name="56" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 21, -3, 15)
+metadata/Piece = "P"
+
+[node name="GamePiece" parent="56" instance=ExtResource("10_unfmt")]
+metadata/BelongsTo = &"56"
+metadata/Type = "P"
+metadata/Moves = 0
+
+[node name="57" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -21, -3, 21)
+metadata/Piece = "R"
+
+[node name="GamePiece" parent="57" instance=ExtResource("11_jlxvu")]
+metadata/BelongsTo = &"57"
+metadata/Type = "R"
+metadata/Moves = 0
+
+[node name="58" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -15, -3, 21)
+metadata/Piece = "N"
+
+[node name="GamePiece" parent="58" instance=ExtResource("12_xpxvo")]
+metadata/BelongsTo = &"58"
+metadata/Type = "N"
+metadata/Moves = 0
+
+[node name="59" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9, -3, 21)
+metadata/Piece = "B"
+
+[node name="GamePiece" parent="59" instance=ExtResource("13_ahl8t")]
+metadata/BelongsTo = &"59"
+metadata/Type = "B"
+metadata/Moves = 0
+
+[node name="60" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3, -3, 21)
+metadata/Piece = "Q"
+
+[node name="GamePiece" parent="60" instance=ExtResource("14_sqvwj")]
+metadata/BelongsTo = &"60"
+metadata/Type = "Q"
+metadata/Moves = 0
+
+[node name="61" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 3, -3, 21)
+metadata/Piece = "K"
+
+[node name="GamePiece" parent="61" instance=ExtResource("15_h2ciq")]
+metadata/BelongsTo = &"61"
+metadata/Type = "K"
+metadata/Moves = 0
+
+[node name="62" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 9, -3, 21)
+metadata/Piece = "B"
+
+[node name="GamePiece" parent="62" instance=ExtResource("13_ahl8t")]
+metadata/BelongsTo = &"62"
+metadata/Type = "B"
+metadata/Moves = 0
+
+[node name="63" parent="." instance=ExtResource("4_h18ie")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15, -3, 21)
+metadata/Piece = "N"
+
+[node name="GamePiece" parent="63" instance=ExtResource("12_xpxvo")]
+metadata/BelongsTo = &"63"
+metadata/Type = "N"
+metadata/Moves = 0
+
+[node name="64" parent="." instance=ExtResource("2_811jv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 21, -3, 21)
+metadata/Piece = "R"
+
+[node name="GamePiece" parent="64" instance=ExtResource("11_jlxvu")]
+metadata/BelongsTo = &"64"
+metadata/Type = "R"
+metadata/Moves = 0
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

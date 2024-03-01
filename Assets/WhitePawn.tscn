@@ -21,5 +21,6 @@ freeze = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.066, 2.9, 0.035)
 shape = SubResource("CylinderShape3D_vnb53")
 
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="mouse_entered" from="RigidBody3D" to="." method="_on_rigid_body_3d_mouse_entered"]
 [connection signal="mouse_exited" from="RigidBody3D" to="." method="_on_rigid_body_3d_mouse_exited"]

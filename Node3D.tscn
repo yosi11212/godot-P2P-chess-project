@@ -1,8 +1,208 @@
-[gd_scene load_steps=5 format=3 uid="uid://mocr4k61n2rb"]
+[gd_scene load_steps=25 format=3 uid="uid://mocr4k61n2rb"]
 
-[ext_resource type="Script" path="res://ColorRect.gd" id="3_kf3s3"]
+[ext_resource type="Script" path="res://Assets/DetectObjectClicked.gd" id="1_gxj20"]
+[ext_resource type="Script" path="res://GUIActions.gd" id="4_6wa38"]
 [ext_resource type="Script" path="res://BoardGridCreating.gd" id="4_a0yh5"]
-[ext_resource type="Script" path="res://MovesCalculator.gd" id="4_oqsdl"]
+[ext_resource type="Script" path="res://ChatManager.gd" id="5_2w2ac"]
+[ext_resource type="Texture2D" uid="uid://cthggrxiu8qsc" path="res://Assets/ChessPiecesIcon/BlackBishop.png" id="6_4c8tv"]
+[ext_resource type="Texture2D" uid="uid://d2hw0mvmnwgvl" path="res://Assets/ChessPiecesIcon/BlackKnight.png" id="7_fx3sr"]
+[ext_resource type="Texture2D" uid="uid://dtvdcu6wvryyk" path="res://Assets/ChessPiecesIcon/BlackPawn.png" id="8_mmamg"]
+[ext_resource type="Texture2D" uid="uid://nyj86ovk27o7" path="res://Assets/ChessPiecesIcon/BlackQueen.png" id="9_wuxec"]
+[ext_resource type="Texture2D" uid="uid://ce3on36h2fi71" path="res://Assets/ChessPiecesIcon/BlackRook.png" id="10_hxmst"]
+[ext_resource type="Texture2D" uid="uid://hnf6n8npxt8i" path="res://Assets/ChessPiecesIcon/BlackKing.png" id="11_cpeu6"]
+[ext_resource type="Texture2D" uid="uid://c21ohvpbkr2by" path="res://Assets/ChessPiecesIcon/WhitePawn.png" id="11_pw4gn"]
+[ext_resource type="Texture2D" uid="uid://6dq03w8vlbbe" path="res://Assets/ChessPiecesIcon/WhiteBishop.png" id="12_344wl"]
+[ext_resource type="Texture2D" uid="uid://33pfird3atfc" path="res://Assets/ChessPiecesIcon/WhiteKnight.png" id="13_1ntse"]
+[ext_resource type="Texture2D" uid="uid://brec4oeo2bmms" path="res://Assets/ChessPiecesIcon/WhiteRook.png" id="14_3o0vg"]
+[ext_resource type="Texture2D" uid="uid://dl6p572jfn7l0" path="res://Assets/ChessPiecesIcon/WhiteQueen.png" id="15_ggudi"]
+[ext_resource type="Texture2D" uid="uid://qpjdmc6lncyl" path="res://Assets/ChessPiecesIcon/WhiteKing.png" id="16_gtlxt"]
+[ext_resource type="Script" path="res://BoardMultiplayer.gd" id="18_op4mf"]
+[ext_resource type="Texture2D" uid="uid://b4u3opvxtv5p8" path="res://Assets/switch-camera.png" id="18_xd4y0"]
+
+[sub_resource type="GDScript" id="GDScript_xvyuy"]
+script/source = "extends ColorRect
+
+var _colorr = 1
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_example_cube_mouse_entered():
+	color = Color.from_ok_hsl(_colorr, 1, 0.5, 1)
+	_colorr -= 0.2
+	if _colorr < 0:
+		_colorr  = 1
+	pass # Replace with function body.
+"
+
+[sub_resource type="GDScript" id="GDScript_7xnmu"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_pressed():
+	print()
+	pass # Replace with function body.
+"
+
+[sub_resource type="Animation" id="Animation_aysju"]
+resource_name = "MoveCamera"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(2.08165e-12, -0.25, 0, 0.25, 0, 2.08165e-12, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(25, -0.25, 0, 0.25, 0, 25, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(30, -0.25, 0, 0.25, 0, -30, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-0.698132, -0.25, 0, 0.25, 0, -0.698132, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(3.48787e-16, -0.25, 0, 0.25, 0, -3.14159, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(3.48787e-16, -0.25, 0, 0.25, 0, 2.08165e-12, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_ymm31"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2.08165e-12, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(25, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(30, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.698132, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(3.48787e-16, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(3.48787e-16, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_msysl"]
+_data = {
+"MoveCamera": SubResource("Animation_aysju"),
+"RESET": SubResource("Animation_ymm31")
+}
 
 [sub_resource type="Environment" id="Environment_8vt31"]
 background_mode = 2
@@ -12,55 +212,319 @@ ambient_light_color = Color(1, 1, 1, 1)
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00281143, 0.101421, -0.080492)
 metadata/_edit_horizontal_guides_ = [0.0, 15.0, 60.0, 75.0]
-metadata/_edit_vertical_guides_ = [20.0]
+metadata/_edit_vertical_guides_ = [20.0, 495.0, 505.0]
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["Camera"]]
-transform = Transform3D(1, -5.82171e-16, 2.59199e-16, 2.59199e-16, 0.743145, 0.669131, -5.82171e-16, -0.669131, 0.743145, 0, 24, 30)
+transform = Transform3D(1, -5.72983e-16, 2.67186e-16, 2.67186e-16, 0.766044, 0.642788, -5.72983e-16, -0.642788, 0.766044, 2.08165e-12, 25, 30)
 current = true
+script = ExtResource("1_gxj20")
 
 [node name="Control" type="Control" parent="Camera3D"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 266.0
 offset_bottom = 168.0
+scale = Vector2(0.699515, 0.699515)
 script = ExtResource("4_a0yh5")
 
 [node name="ColorRect" type="ColorRect" parent="Camera3D/Control"]
 layout_mode = 0
-offset_right = 201.0
-offset_bottom = 129.0
+offset_right = 205.0
+offset_bottom = 187.0
 color = Color(1, 0, 0, 0.415686)
-script = ExtResource("3_kf3s3")
+script = SubResource("GDScript_xvyuy")
+
+[node name="HostMatch" type="Button" parent="Camera3D/Control"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 21.4434
+offset_right = 190.0
+offset_bottom = 63.4434
+text = "Host Chess Match"
+script = ExtResource("4_6wa38")
+
+[node name="BoardSetup" type="LineEdit" parent="Camera3D/Control/HostMatch"]
+visible = false
+layout_mode = 0
+offset_left = 185.0
+offset_right = 383.0
+offset_bottom = 42.0
+text = "rnbqkbnrpppppppp8888PPPPPPPPRNBQKBNR"
+placeholder_text = "rnbqkbnrpppppppp8888PPPPPPPPRNBQKBNR"
 
 [node name="Button" type="Button" parent="Camera3D/Control"]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 75.0
+offset_top = 75.2107
 offset_right = 190.0
-offset_bottom = 112.0
-text = "Generate Game"
+offset_bottom = 117.211
+text = "Join Chess Match"
 
-[node name="LineEdit" type="LineEdit" parent="Camera3D/Control"]
+[node name="IPAddress" type="LineEdit" parent="Camera3D/Control"]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 17.0
-offset_right = 391.0
-offset_bottom = 59.0
-text = "FEN Chess Notation Starting Position"
-placeholder_text = "rnbqkbnrpppppppp8888PPPPPPPPRNBQKBNR"
+offset_top = 129.0
+offset_right = 190.0
+offset_bottom = 171.0
+text = "127.0.0.1"
 
-[node name="Use recommended" type="Button" parent="Camera3D/Control"]
+[node name="MoveCamera" type="Button" parent="Camera3D/Control"]
+visible = false
 layout_mode = 0
-offset_left = 399.0
-offset_top = 17.0
-offset_right = 557.0
-offset_bottom = 59.0
-tooltip_text = "Standard Chess Game"
-theme_override_colors/font_color = Color(1, 0.611765, 0.796078, 1)
-text = "Use Recommended"
+offset_top = 810.562
+offset_right = 85.0
+offset_bottom = 895.562
+icon = ExtResource("18_xd4y0")
+icon_alignment = 1
+expand_icon = true
+script = SubResource("GDScript_7xnmu")
 
-[node name="Board" type="Node3D" parent="Camera3D/Control"]
-script = ExtResource("4_oqsdl")
+[node name="Chat" type="Control" parent="Camera3D/Control"]
+visible = false
+anchors_preset = 0
+offset_top = 129.0
+offset_right = 205.0
+offset_bottom = 281.0
+script = ExtResource("5_2w2ac")
+
+[node name="IPAddress" type="LineEdit" parent="Camera3D/Control/Chat"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 99.0
+offset_right = 190.0
+offset_bottom = 131.0
+text = "127.0.0.1"
+
+[node name="Panel" type="Panel" parent="Camera3D/Control/Chat"]
+visible = false
+layout_mode = 0
+offset_left = 1429.69
+offset_top = -129.0
+offset_right = 1644.69
+offset_bottom = 152.0
+size_flags_horizontal = 10
+size_flags_vertical = 0
+
+[node name="ChatInput" type="LineEdit" parent="Camera3D/Control/Chat/Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -31.0
+offset_right = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ChatLog" type="TextEdit" parent="Camera3D/Control/Chat/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = -10.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+editable = false
+context_menu_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="DownAtePanel" type="PanelContainer" parent="Camera3D/Control"]
+layout_mode = 0
+offset_left = 481.699
+offset_top = 885.0
+offset_right = 1181.7
+offset_bottom = 925.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/Control/DownAtePanel"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Camera3D/Control/DownAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_mmamg")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Camera3D/Control/DownAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_mmamg")
+expand_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="Camera3D/Control/DownAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_mmamg")
+expand_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="Camera3D/Control/DownAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_mmamg")
+expand_mode = 3
+
+[node name="TextureRect5" type="TextureRect" parent="Camera3D/Control/DownAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_mmamg")
+expand_mode = 3
+
+[node name="TextureRect6" type="TextureRect" parent="Camera3D/Control/DownAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_mmamg")
+expand_mode = 3
+
+[node name="TextureRect7" type="TextureRect" parent="Camera3D/Control/DownAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_mmamg")
+expand_mode = 3
+
+[node name="TextureRect8" type="TextureRect" parent="Camera3D/Control/DownAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_mmamg")
+expand_mode = 3
+
+[node name="TextureRect9" type="TextureRect" parent="Camera3D/Control/DownAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_4c8tv")
+expand_mode = 3
+
+[node name="TextureRect10" type="TextureRect" parent="Camera3D/Control/DownAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_4c8tv")
+expand_mode = 3
+
+[node name="TextureRect11" type="TextureRect" parent="Camera3D/Control/DownAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_fx3sr")
+expand_mode = 3
+
+[node name="TextureRect12" type="TextureRect" parent="Camera3D/Control/DownAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_fx3sr")
+expand_mode = 3
+
+[node name="TextureRect14" type="TextureRect" parent="Camera3D/Control/DownAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_hxmst")
+expand_mode = 3
+
+[node name="TextureRect15" type="TextureRect" parent="Camera3D/Control/DownAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_hxmst")
+expand_mode = 3
+
+[node name="TextureRect13" type="TextureRect" parent="Camera3D/Control/DownAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_wuxec")
+expand_mode = 3
+
+[node name="TextureRect16" type="TextureRect" parent="Camera3D/Control/DownAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_cpeu6")
+expand_mode = 3
+
+[node name="UpAtePanel" type="PanelContainer" parent="Camera3D/Control"]
+layout_mode = 0
+offset_left = 481.699
+offset_right = 1181.7
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/Control/UpAtePanel"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Camera3D/Control/UpAtePanel/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Eaten at move # : 10
+Eaten by: ROOK
+Eaten By move: 4a5b"
+texture = ExtResource("11_pw4gn")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Camera3D/Control/UpAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_pw4gn")
+expand_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="Camera3D/Control/UpAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_pw4gn")
+expand_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="Camera3D/Control/UpAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_pw4gn")
+expand_mode = 3
+
+[node name="TextureRect5" type="TextureRect" parent="Camera3D/Control/UpAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_pw4gn")
+expand_mode = 3
+
+[node name="TextureRect6" type="TextureRect" parent="Camera3D/Control/UpAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_pw4gn")
+expand_mode = 3
+
+[node name="TextureRect7" type="TextureRect" parent="Camera3D/Control/UpAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_pw4gn")
+expand_mode = 3
+
+[node name="TextureRect8" type="TextureRect" parent="Camera3D/Control/UpAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_pw4gn")
+expand_mode = 3
+
+[node name="TextureRect9" type="TextureRect" parent="Camera3D/Control/UpAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("12_344wl")
+expand_mode = 3
+
+[node name="TextureRect10" type="TextureRect" parent="Camera3D/Control/UpAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("12_344wl")
+expand_mode = 3
+
+[node name="TextureRect11" type="TextureRect" parent="Camera3D/Control/UpAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("13_1ntse")
+expand_mode = 3
+
+[node name="TextureRect12" type="TextureRect" parent="Camera3D/Control/UpAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("13_1ntse")
+expand_mode = 3
+
+[node name="TextureRect13" type="TextureRect" parent="Camera3D/Control/UpAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("14_3o0vg")
+expand_mode = 3
+
+[node name="TextureRect14" type="TextureRect" parent="Camera3D/Control/UpAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("14_3o0vg")
+expand_mode = 3
+
+[node name="TextureRect15" type="TextureRect" parent="Camera3D/Control/UpAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("15_ggudi")
+expand_mode = 3
+
+[node name="TextureRect16" type="TextureRect" parent="Camera3D/Control/UpAtePanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("16_gtlxt")
+expand_mode = 3
+
+[node name="BoardMultiplayer" type="MultiplayerSpawner" parent="Camera3D/Control"]
+_spawnable_scenes = PackedStringArray("res://Board.tscn")
+spawn_path = NodePath("..")
+script = ExtResource("18_op4mf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
+libraries = {
+"": SubResource("AnimationLibrary_msysl")
+}
 
 [node name="TheWorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8vt31")
@@ -68,7 +532,8 @@ environment = SubResource("Environment_8vt31")
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0166497, 0.999861, 0, -0.999861, -0.0166497, 1.18142, 11.2826, -0.305331)
 
-[connection signal="pressed" from="Camera3D/Control/Button" to="Camera3D/Control" method="_on_button_pressed"]
-[connection signal="pressed" from="Camera3D/Control/Button" to="Camera3D/Control/Button" method="_on_pressed"]
-[connection signal="pressed" from="Camera3D/Control/Use recommended" to="Camera3D/Control" method="_on_use_recommended_pressed"]
-[connection signal="pressed" from="Camera3D/Control/Use recommended" to="Camera3D/Control/Use recommended" method="_on_pressed"]
+[connection signal="pressed" from="Camera3D/Control/HostMatch" to="Camera3D/Control/HostMatch" method="HostMatch_on_pressed"]
+[connection signal="pressed" from="Camera3D/Control/Button" to="Camera3D/Control/HostMatch" method="JoinMatch_on_pressed"]
+[connection signal="pressed" from="Camera3D/Control/MoveCamera" to="Camera3D/Control/HostMatch" method="MoveCamera_on_pressed"]
+[connection signal="text_submitted" from="Camera3D/Control/Chat/Panel/ChatInput" to="Camera3D/Control/Chat" method="_on_chat_input_text_submitted"]
+[connection signal="spawned" from="Camera3D/Control/BoardMultiplayer" to="Camera3D/Control/BoardMultiplayer" method="_on_spawned"]

@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 GlobalVariables="*res://GlobalVariables.gd"
 MovesCalculator="*res://MovesCalculator.gd"
+DetectObjectClicked="*res://Assets/DetectObjectClicked.gd"
+ChatManager="*res://ChatManager.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [dotnet]
 

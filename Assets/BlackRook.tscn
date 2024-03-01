@@ -1,9 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://2ld8j7jjqlyw"]
+[gd_scene load_steps=5 format=3 uid="uid://2ld8j7jjqlyw"]
 
 [ext_resource type="ArrayMesh" uid="uid://0267ifbo1xds" path="res://Assets/Mesh/Rook.res" id="1_ea4ho"]
 [ext_resource type="Material" uid="uid://bjpsreuognjb3" path="res://Assets/Surfaces/Black.tres" id="2_fyjve"]
+[ext_resource type="Script" path="res://Assets/UpdateGridStatus.gd" id="3_kgjeu"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yhi0f"]
+height = 5.70702
+radius = 2.1
 
 [node name="BlackRook" type="MeshInstance3D"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.08165e-12, 1, 2.08165e-12)
 mesh = ExtResource("1_ea4ho")
 surface_material_override/0 = ExtResource("2_fyjve")
+script = ExtResource("3_kgjeu")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.066, 2.9, 0.035)
+shape = SubResource("CylinderShape3D_yhi0f")
+
+[connection signal="mouse_entered" from="RigidBody3D" to="." method="_on_rigid_body_3d_mouse_entered"]
+[connection signal="mouse_exited" from="RigidBody3D" to="." method="_on_rigid_body_3d_mouse_exited"]

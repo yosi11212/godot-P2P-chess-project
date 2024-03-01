@@ -1,9 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3srduqtlja2m"]
+[gd_scene load_steps=5 format=3 uid="uid://b3srduqtlja2m"]
 
 [ext_resource type="ArrayMesh" uid="uid://bm1od4djiokya" path="res://Assets/Mesh/Bishop.res" id="1_ypqj5"]
 [ext_resource type="Material" uid="uid://bjpsreuognjb3" path="res://Assets/Surfaces/Black.tres" id="2_norrh"]
+[ext_resource type="Script" path="res://Assets/UpdateGridStatus.gd" id="3_j2je8"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pggcj"]
+height = 5.70702
+radius = 2.1
 
 [node name="BlackBishop" type="MeshInstance3D"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.08165e-12, 1, 2.08165e-12)
 mesh = ExtResource("1_ypqj5")
 surface_material_override/0 = ExtResource("2_norrh")
+script = ExtResource("3_j2je8")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.066, 2.9, 0.035)
+shape = SubResource("CylinderShape3D_pggcj")
+
+[connection signal="mouse_entered" from="RigidBody3D" to="." method="_on_rigid_body_3d_mouse_entered"]
+[connection signal="mouse_exited" from="RigidBody3D" to="." method="_on_rigid_body_3d_mouse_exited"]

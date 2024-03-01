@@ -1,23 +1,22 @@
 extends Node
 
-
-var WorldBackgroundColor = Color.from_ok_hsl(0.005, 1, 0.5, 1)
-
 var PiecesDictionary = {
-	#black
+	#black---
 	"r": "res://Assets/BlackRook.tscn",#black rook
 	"b": "res://Assets/BlackBishop.tscn",#black bishop
 	"n": "res://Assets/BlackKnight.tscn",#black knight
 	"q": "res://Assets/BlackQueen.tscn",#black queen
 	"k": "res://Assets/BlackKing.tscn",#black king
 	"p": "res://Assets/BlackPawn.tscn",#black pawn
-	#white
+	"m": "res://Assets/BlackChecker.tscn",#BlackChecker Board
+	#white---
 	"R": "res://Assets/WhiteRook.tscn",#white rook
 	"B": "res://Assets/WhiteBishop.tscn",#white bishop
 	"N": "res://Assets/WhiteKnight.tscn",#white knight
 	"Q": "res://Assets/WhiteQueen.tscn",#white queen
 	"K": "res://Assets/WhiteKing.tscn",#white king
-	"P": "res://Assets/WhitePawn.tscn"#white pawn
+	"P": "res://Assets/WhitePawn.tscn",#white pawn
+	"M": "res://Assets/whiteChecker.tscn"#WhiteCheckers Pieces
 }
 
 var status = {
@@ -87,4 +86,12 @@ var status = {
 	64: false
 }
 var occupied = {
+}
+var occupiedBy = {
+}
+var globalPieces = {
+	
+}
+var globalBoardCubes = {
+	
 }
