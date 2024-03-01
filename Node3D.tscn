@@ -536,4 +536,5 @@ transform = Transform3D(1, 0, 0, 0, -0.0166497, 0.999861, 0, -0.999861, -0.01664
 [connection signal="pressed" from="Camera3D/Control/Button" to="Camera3D/Control/HostMatch" method="JoinMatch_on_pressed"]
 [connection signal="pressed" from="Camera3D/Control/MoveCamera" to="Camera3D/Control/HostMatch" method="MoveCamera_on_pressed"]
 [connection signal="text_submitted" from="Camera3D/Control/Chat/Panel/ChatInput" to="Camera3D/Control/Chat" method="_on_chat_input_text_submitted"]
+[connection signal="spawned" from="Camera3D/Control/BoardMultiplayer" to="Camera3D/Control/HostMatch" method="_on_board_multiplayer_spawned"]
 [connection signal="spawned" from="Camera3D/Control/BoardMultiplayer" to="Camera3D/Control/BoardMultiplayer" method="_on_spawned"]

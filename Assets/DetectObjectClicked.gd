@@ -16,8 +16,8 @@ func HandleReprentOfPiece(whatisHeld,closest):
 	GlobalVariables.occupiedBy[str(whatsHeld.get_meta("BelongsTo"))] = ' '
 	
 	#if not clear then need to eat | eating function
+	print("lookinforthis ",GlobalVariables.occupied)
 	if GlobalVariables.occupied[closest.name] != ' ':
-		
 		print(closest.name," IS PREGNONT ",GlobalVariables.occupied[closest.name])
 		print(GlobalVariables.occupiedBy[closest.name].global_position)
 		GlobalVariables.occupiedBy[closest.name].global_position = closest.global_position + Vector3(0,-3,0)
@@ -59,16 +59,15 @@ func _input(event): #drag game piece
 					await get_tree().create_timer(0.001).timeout
 				## find closest clear grid spot
 				var closest = ClosestFromArray(whatisheld[0],get_tree().get_nodes_in_group("FreeGameGrid"))
-				print("CLOSEST ",closest.name," : ",closest)
+				#if targeting a different square than current one
 				if closest.name != whatisheld[0].get_parent().get_meta("BelongsTo"):
 					rpc("HandleReprentOfPiece",whatisheld[0].get_parent().get_parent().name,closest.name)
 					HandleReprentOfPiece(whatisheld[0].get_parent().get_parent().name,closest.name)
+				#set global position of gamepiece
 				whatisheld[0].get_parent().global_position = closest.global_position + Vector3(0,3,0) #happens in closest now
-		print("calm")
 		held = false
 		whatisheld = []
 		ClearSelectables()
-		
 
 func ClosestFromArray(object,array):
 	var mostFar = 999
@@ -101,3 +100,7 @@ func _raycast(PosOrCollide): #false returns collider, true returns position
 			return result.collider
 
 
+
+
+func _on_board_multiplayer_spawned(node):
+	pass # Replace with function body.
