@@ -131,26 +131,29 @@ func calcuateMove(type, position, moves ,status):
 	
 	
 	if type == 'P':#white pawn
-	
-		if isClear('O',position - 8): #movement
-			GlobalVariables.status[str(position - 8)] = status
-			if moves == 0 && isClear('O',position - 16):
-				GlobalVariables.status[str(position - 16)] = status
-		if position % 8 != 0 and !isClear('BL',position -7):
-			GlobalVariables.status[str(position - 7)] = status
-		if !isClear('BL',position -9):
-			GlobalVariables.status[str(position - 9)] = status
 		
+		if position > 8:
+			if isClear('O',position - 8): #movement
+				GlobalVariables.status[str(position - 8)] = status
+				if moves == 0 && isClear('O',position - 16):
+					GlobalVariables.status[str(position - 16)] = status
+			if position % 8 != 0 and !isClear('BL',position -7):
+				GlobalVariables.status[str(position - 7)] = status
+			if position > 9:
+				if !isClear('BL',position -9):
+					GlobalVariables.status[str(position - 9)] = status
+			
 	if type == 'p':#black pawn
 
-		if isClear('O',position + 8): #movement
-			GlobalVariables.status[str(position + 8)] = status
-			if moves == 0 && isClear('O',position + 16):
-				GlobalVariables.status[str(position + 16)] = status
-		if !isClear('W',position +7):
-			GlobalVariables.status[str(position + 7)] = status
-		if position % 8 != 0 and !isClear('W',position +9):
-			GlobalVariables.status[str(position + 9)] = status
+		if position < 57:
+			if isClear('O',position + 8): #movement
+				GlobalVariables.status[str(position + 8)] = status
+				if moves == 0 && isClear('O',position + 16):
+					GlobalVariables.status[str(position + 16)] = status
+			if !isClear('W',position +7):
+				GlobalVariables.status[str(position + 7)] = status
+			if position % 8 != 0 and !isClear('W',position +9):
+				GlobalVariables.status[str(position + 9)] = status
 	
 	if type == 'R' or type == 'r':#white rook
 

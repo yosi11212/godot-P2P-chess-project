@@ -34,6 +34,7 @@ func HandleReprentOfPiece(whatisHeld,closest):
 	
 	#set piece position to new position
 	whatsHeld.global_position = closest.global_position + Vector3(0,3,0)
+	
 	pass
 
 func ClearSelectables():
