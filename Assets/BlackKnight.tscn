@@ -1,9 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfb706fd0npbc"]
+[gd_scene load_steps=5 format=3 uid="uid://dfb706fd0npbc"]
 
 [ext_resource type="ArrayMesh" uid="uid://ccyu2mhola2tf" path="res://Assets/Mesh/Knight.res" id="1_rv7qg"]
 [ext_resource type="Material" uid="uid://bjpsreuognjb3" path="res://Assets/Surfaces/Black.tres" id="2_me8pg"]
+[ext_resource type="Script" path="res://Assets/UpdateGridStatus.gd" id="3_gbfvd"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_c4s40"]
+height = 5.70702
+radius = 2.1
 
 [node name="BlackKnight" type="MeshInstance3D"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.08165e-12, 1, 2.08165e-12)
 mesh = ExtResource("1_rv7qg")
 surface_material_override/0 = ExtResource("2_me8pg")
+script = ExtResource("3_gbfvd")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.066, 2.9, 0.035)
+shape = SubResource("CylinderShape3D_c4s40")
+
+[connection signal="mouse_entered" from="RigidBody3D" to="." method="_on_rigid_body_3d_mouse_entered"]
+[connection signal="mouse_exited" from="RigidBody3D" to="." method="_on_rigid_body_3d_mouse_exited"]

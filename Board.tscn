@@ -33,9 +33,9 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -15, -3, -21)
 metadata/Piece = "n"
 
 [node name="GamePiece" parent="2" instance=ExtResource("5_rc8c3")]
-metadata/BelongsTo = &"2"
 metadata/Type = "n"
 metadata/Moves = 0
+metadata/BelongsTo = &"3"
 
 [node name="3" parent="." instance=ExtResource("2_811jv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9, -3, -21)
@@ -78,9 +78,9 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15, -3, -21)
 metadata/Piece = "n"
 
 [node name="GamePiece" parent="7" instance=ExtResource("5_rc8c3")]
-metadata/BelongsTo = &"7"
 metadata/Type = "n"
 metadata/Moves = 0
+metadata/BelongsTo = &"7"
 
 [node name="8" parent="." instance=ExtResource("4_h18ie")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 21, -3, -21)

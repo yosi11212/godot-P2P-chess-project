@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://mocr4k61n2rb"]
+[gd_scene load_steps=26 format=3 uid="uid://mocr4k61n2rb"]
 
 [ext_resource type="Script" path="res://Assets/DetectObjectClicked.gd" id="1_gxj20"]
 [ext_resource type="Script" path="res://GUIActions.gd" id="4_6wa38"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://qpjdmc6lncyl" path="res://Assets/ChessPiecesIcon/WhiteKing.png" id="16_gtlxt"]
 [ext_resource type="Script" path="res://BoardMultiplayer.gd" id="18_op4mf"]
 [ext_resource type="Texture2D" uid="uid://b4u3opvxtv5p8" path="res://Assets/switch-camera.png" id="18_xd4y0"]
+[ext_resource type="Script" path="res://TurnDisplay.gd" id="19_b65uy"]
 
 [sub_resource type="GDScript" id="GDScript_xvyuy"]
 script/source = "extends ColorRect
@@ -240,6 +241,7 @@ offset_left = 20.0
 offset_top = 21.4434
 offset_right = 190.0
 offset_bottom = 63.4434
+keep_pressed_outside = true
 text = "Host Chess Match"
 script = ExtResource("4_6wa38")
 
@@ -252,7 +254,7 @@ offset_bottom = 42.0
 text = "rnbqkbnrpppppppp8888PPPPPPPPRNBQKBNR"
 placeholder_text = "rnbqkbnrpppppppp8888PPPPPPPPRNBQKBNR"
 
-[node name="Button" type="Button" parent="Camera3D/Control"]
+[node name="JoinMatch" type="Button" parent="Camera3D/Control"]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 75.2107
@@ -521,6 +523,55 @@ _spawnable_scenes = PackedStringArray("res://Board.tscn")
 spawn_path = NodePath("..")
 script = ExtResource("18_op4mf")
 
+[node name="CheckAll" type="Button" parent="Camera3D/Control"]
+layout_mode = 0
+offset_left = 34.3095
+offset_top = 194.42
+offset_right = 160.309
+offset_bottom = 234.42
+text = "BLACK"
+
+[node name="Connection" type="RichTextLabel" parent="Camera3D/Control"]
+layout_mode = 0
+offset_left = 505.109
+offset_top = 106.317
+offset_right = 1121.11
+offset_bottom = 177.317
+theme_override_font_sizes/normal_font_size = 50
+text = "AWAITING CONNECTION"
+
+[node name="TurnDisplay" type="Panel" parent="Camera3D/Control"]
+layout_mode = 0
+offset_left = 1487.0
+offset_top = 11.0
+offset_right = 1636.0
+offset_bottom = 160.0
+script = ExtResource("19_b65uy")
+
+[node name="White" type="TextureRect" parent="Camera3D/Control/TurnDisplay"]
+layout_mode = 0
+offset_left = 5.8941
+offset_top = 12.0021
+offset_right = 142.894
+offset_bottom = 149.002
+texture = ExtResource("16_gtlxt")
+
+[node name="Black" type="TextureRect" parent="Camera3D/Control/TurnDisplay"]
+visible = false
+layout_mode = 0
+offset_left = 5.8941
+offset_top = 12.0021
+offset_right = 142.894
+offset_bottom = 149.002
+texture = ExtResource("11_cpeu6")
+
+[node name="Text" type="RichTextLabel" parent="Camera3D/Control/TurnDisplay"]
+layout_mode = 0
+offset_left = 22.4365
+offset_right = 159.437
+offset_bottom = 40.0
+text = "Current turn:"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
 libraries = {
 "": SubResource("AnimationLibrary_msysl")
@@ -533,8 +584,9 @@ environment = SubResource("Environment_8vt31")
 transform = Transform3D(1, 0, 0, 0, -0.0166497, 0.999861, 0, -0.999861, -0.0166497, 1.18142, 11.2826, -0.305331)
 
 [connection signal="pressed" from="Camera3D/Control/HostMatch" to="Camera3D/Control/HostMatch" method="HostMatch_on_pressed"]
-[connection signal="pressed" from="Camera3D/Control/Button" to="Camera3D/Control/HostMatch" method="JoinMatch_on_pressed"]
+[connection signal="pressed" from="Camera3D/Control/JoinMatch" to="Camera3D/Control/HostMatch" method="JoinMatch_on_pressed"]
 [connection signal="pressed" from="Camera3D/Control/MoveCamera" to="Camera3D/Control/HostMatch" method="MoveCamera_on_pressed"]
 [connection signal="text_submitted" from="Camera3D/Control/Chat/Panel/ChatInput" to="Camera3D/Control/Chat" method="_on_chat_input_text_submitted"]
 [connection signal="spawned" from="Camera3D/Control/BoardMultiplayer" to="Camera3D/Control/HostMatch" method="_on_board_multiplayer_spawned"]
 [connection signal="spawned" from="Camera3D/Control/BoardMultiplayer" to="Camera3D/Control/BoardMultiplayer" method="_on_spawned"]
+[connection signal="pressed" from="Camera3D/Control/CheckAll" to="Camera3D/Control/HostMatch" method="_on_button_pressed"]

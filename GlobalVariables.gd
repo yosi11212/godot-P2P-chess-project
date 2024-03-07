@@ -85,8 +85,10 @@ var status = {
 	63: false,
 	64: false
 }
+
 var occupied = {
 }
+
 var occupiedBy = {
 }
 var globalPieces = {
@@ -95,3 +97,5 @@ var globalPieces = {
 var globalBoardCubes = {
 	
 }
+
+var GlobalTurn = "White"

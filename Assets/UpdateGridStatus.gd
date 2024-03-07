@@ -5,15 +5,29 @@ extends MeshInstance3D
 func _ready():
 	pass # Replace with function body.
 
-func updatePosition(Position):
-	self.get_global_position()
-pass
+var whites = ['P','R','Q','K','B','N','W']
+var blacks = ['p','r','q','k','b','n','BL']
 
 func _on_rigid_body_3d_mouse_entered():
-	print("bogos binted")
+	var ownColor = []
+	var isAbleToMoveColor = []
+	match multiplayer.is_server():
+		true:
+			ownColor = whites
+		false: 
+			ownColor = blacks
+	if ownColor.has(self.get_meta("Type")):
+		isAbleToMoveColor = ownColor
+	
+	print("bogos binted ", self.get_meta_list())
 	#GlobalVariables.status[self.get_meta("BelongsTo")] = true
-	MovesCalculator.calcuateMove(self.get_meta("Type"),self.get_meta("BelongsTo"),self.get_meta("Moves"),true)
+
+	if isAbleToMoveColor == whites and GlobalVariables.GlobalTurn == "White":
+		MovesCalculator.calcuateMove(self.get_meta("Type"),self.get_meta("BelongsTo"),self.get_meta("Moves"),true)
+	else: if isAbleToMoveColor == blacks and GlobalVariables.GlobalTurn == "Black":
+		MovesCalculator.calcuateMove(self.get_meta("Type"),self.get_meta("BelongsTo"),self.get_meta("Moves"),true)
 	pass # Replace with function body.
+
 
 
 func _on_rigid_body_3d_mouse_exited():

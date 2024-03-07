@@ -6,3 +6,5 @@ extends MultiplayerSpawner
 		#for block in GridBlocks:
 			#GlobalVariables.occupied[str(block.name)] = block.get_meta("Piece")
 	#pass # Replace with function body.
+
+

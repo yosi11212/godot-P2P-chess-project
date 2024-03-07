@@ -6,7 +6,7 @@ var held = false
 @rpc("any_peer")
 func HandleReprentOfPiece(whatisHeld,closest):
 	var whatsHeld = whatisHeld
-
+	
 	closest = get_tree().get_nodes_in_group("GameGrid")[int(String(closest)) - 1]
 
 	whatsHeld = get_tree().get_nodes_in_group("GameGrid")[int(String(whatisHeld)) - 1].find_child("GamePiece")
@@ -35,29 +35,47 @@ func HandleReprentOfPiece(whatisHeld,closest):
 	#set piece position to new position
 	whatsHeld.global_position = closest.global_position + Vector3(0,3,0)
 	
+	rpc("toggleTurn")
+	#toggleTurn()
+	print("global ",GlobalVariables.GlobalTurn)
 	pass
+
+@rpc("any_peer")
+func toggleTurn():
+	match GlobalVariables.GlobalTurn:
+		"White":
+			GlobalVariables.GlobalTurn = "Black"
+		"Black":
+			GlobalVariables.GlobalTurn = "White"
 
 func ClearSelectables():
 	print("CLEAR!")
-	for i in range(1,64):
+	for i in range(0,65):
 		GlobalVariables.status[str(i)] = false
 
 
+
 func _input(event): #drag game piece
+	
+	#print("shmash ",multiplayer.is_server())
+	var isTurn = (multiplayer.is_server() and GlobalVariables.GlobalTurn == "White") or (!multiplayer.is_server() and GlobalVariables.GlobalTurn == "Black")
+	
+
+	
 	#when mouse if clicked
-	if held == false and Input.is_action_pressed("LeftMouse"):
+	if held == false and Input.is_action_pressed("LeftMouse") and isTurn:
 		held = true
 		#check if raycase succsessfull and hit a gamepiece
 		if _raycast(false) != null and _raycast(false).get_parent().name == "GamePiece":
 			whatisheld = [_raycast(false)]
-
+			
 			if whatisheld[0].get_parent().name == "GamePiece":
 				##_ set location of game piece to cursor
 				while Input.is_action_pressed("LeftMouse"):
 					#print("AHHHHH",_raycast(true),whatisheld) #DEBUG
 					if _raycast(true) != null:
 						whatisheld[0].get_parent().global_position = _raycast(true)
-					await get_tree().create_timer(0.001).timeout
+					await get_tree().create_timer(1/60).timeout
 				## find closest clear grid spot
 				var closest = ClosestFromArray(whatisheld[0],get_tree().get_nodes_in_group("FreeGameGrid"))
 				#if targeting a different square than current one

@@ -114,126 +114,121 @@ func calcuateMove(type, position, moves ,status):
 	position = int(str(position)) 
 	GlobalVariables.status[str(position)] = status
 	
-	
-	if type == 'q' or type == 'Q':#queen
-		if !(position < 8): #calculate towards black
-			_recursevlyStraight(type,position,'U',status)#look up if space
-		if !(position > 56):
-			_recursevlyStraight(type,position,'D',status)#look down if space
-		if (position % 8 > 0):
-			_recursevlyStraight(type,position,'R',status)#look right if space
-		if !(position in stopAtLeft):
-			_recursevlyStraight(type,position,'L',status)#look left if space
-		_recursevlyDiagonal(type,position,'upL',status)
-		_recursevlyDiagonal(type,position,'upR',status)
-		_recursevlyDiagonal(type,position,'downR',status)
-		_recursevlyDiagonal(type,position,'downL',status)
-	
-	
-	if type == 'P':#white pawn
-		
-		if position > 8:
-			if isClear('O',position - 8): #movement
-				GlobalVariables.status[str(position - 8)] = status
-				if moves == 0 && isClear('O',position - 16):
-					GlobalVariables.status[str(position - 16)] = status
-			if position % 8 != 0 and !isClear('BL',position -7):
-				GlobalVariables.status[str(position - 7)] = status
-			if position > 9:
-				if !isClear('BL',position -9):
-					GlobalVariables.status[str(position - 9)] = status
+	match type:
+		'q','Q': #Queens
+			if !(position < 8): #calculate towards black
+				_recursevlyStraight(type,position,'U',status)#look up if space
+			if !(position > 56):
+				_recursevlyStraight(type,position,'D',status)#look down if space
+			if (position % 8 > 0):
+				_recursevlyStraight(type,position,'R',status)#look right if space
+			if !(position in stopAtLeft):
+				_recursevlyStraight(type,position,'L',status)#look left if space
+			_recursevlyDiagonal(type,position,'upL',status)
+			_recursevlyDiagonal(type,position,'upR',status)
+			_recursevlyDiagonal(type,position,'downR',status)
+			_recursevlyDiagonal(type,position,'downL',status)
 			
-	if type == 'p':#black pawn
-
-		if position < 57:
-			if isClear('O',position + 8): #movement
-				GlobalVariables.status[str(position + 8)] = status
-				if moves == 0 && isClear('O',position + 16):
-					GlobalVariables.status[str(position + 16)] = status
-			if !isClear('W',position +7):
-				GlobalVariables.status[str(position + 7)] = status
-			if position % 8 != 0 and !isClear('W',position +9):
-				GlobalVariables.status[str(position + 9)] = status
-	
-	if type == 'R' or type == 'r':#white rook
-
-		if !(position < 8): #calculate towards black
-			_recursevlyStraight(type,position,'U',status)#look up if space
-		if !(position > 56):
-			_recursevlyStraight(type,position,'D',status)#look down if space
-		if (position % 8 > 0):
-			_recursevlyStraight(type,position,'R',status)#look right if space
-		if !(position in stopAtLeft):
-			_recursevlyStraight(type,position,'L',status)#look left if space
-	
-	if type == 'b' or type == 'B':#bishop
-
-		print('bishop slay detected')
-		_recursevlyDiagonal(type,position,'upL',status)
-		_recursevlyDiagonal(type,position,'upR',status)
-		_recursevlyDiagonal(type,position,'downR',status)
-		_recursevlyDiagonal(type,position,'downL',status)
-		
-	if type == 'K' or type == 'k':#king
-		var colortype = "BL"
-		if type == 'K': colortype = 'W'
-		if position >= 8:#king movement up
-			if isClear(colortype,position -8):
-				GlobalVariables.status[str(position - 8)] = status
-		if position <= 56:#king movement down
-				if isClear(colortype,position +8):
-					GlobalVariables.status[str(position + 8)] = status
-		if !(position in stopAtLeft):#king movement left
-				if isClear(colortype,position -1):
-					GlobalVariables.status[str(position - 1)] = status
-		if !(position in stopAtLeft) and position >= 8:#king movement left up
-				if isClear(colortype,position -9):
-					GlobalVariables.status[str(position - 9)] = status
-		if !(position in stopAtLeft) and position <= 56:#king movement left up
-			if isClear(colortype,position + 9):
-				GlobalVariables.status[str(position + 9)] = status
-		if !(position in rightBoundaries) and position >= 8:#king movement right up
-				if isClear(colortype,position - 7):
+		'P':#white pawn
+			if position > 8:
+				if isClear('O',position - 8): #movement
+					GlobalVariables.status[str(position - 8)] = status
+					if moves == 0 && isClear('O',position - 16):
+						GlobalVariables.status[str(position - 16)] = status
+				if position % 8 != 0 and !isClear('BL',position -7):
 					GlobalVariables.status[str(position - 7)] = status
-		if !(position in rightBoundaries) and position <= 56:#king movement left down
-				if isClear(colortype,position + 7):
-					GlobalVariables.status[str(position + 7)] = status
-		if !(position in rightBoundaries):#king movement right
-				if isClear(colortype,position +1):
-					GlobalVariables.status[str(position + 1)] = status
-	
-	if type == 'n' or type == 'N':
-		var colortype = "BL"
-		if type == 'N': colortype = 'W'
-		if position % 8 != 0 and position > 16: #night up right
-			if isClear(colortype,position - 15):
-				GlobalVariables.status[str(position - 15)] = status
-		
-		if position % 8 != 1 and position > 16:#night up left
-			if isClear(colortype,position - 17):
-				GlobalVariables.status[str(position - 17)] = status
+				if position > 9:
+					if !isClear('BL',position -9):
+						GlobalVariables.status[str(position - 9)] = status
 				
-		if (position % 8 != 7 and position % 8 != 0) and position > 8:#night left up
-			if isClear(colortype,position - 6):
-				GlobalVariables.status[str(position - 6)] = status
+		'p':#black pawn
+			if position < 57:
+				if isClear('O',position + 8): #movement
+					GlobalVariables.status[str(position + 8)] = status
+					if moves == 0 && isClear('O',position + 16):
+						GlobalVariables.status[str(position + 16)] = status
+				if !isClear('W',position +7):
+					GlobalVariables.status[str(position + 7)] = status
+				if position % 8 != 0 and !isClear('W',position +9):
+					GlobalVariables.status[str(position + 9)] = status
+	
+		'R','r':#white rook
+			if !(position < 8): #calculate towards black
+				_recursevlyStraight(type,position,'U',status)#look up if space
+			if !(position > 56):
+				_recursevlyStraight(type,position,'D',status)#look down if space
+			if (position % 8 > 0):
+				_recursevlyStraight(type,position,'R',status)#look right if space
+			if !(position in stopAtLeft):
+				_recursevlyStraight(type,position,'L',status)#look left if space
+	
+		'b','B':#bishop
+			print('bishop slay detected')
+			_recursevlyDiagonal(type,position,'upL',status)
+			_recursevlyDiagonal(type,position,'upR',status)
+			_recursevlyDiagonal(type,position,'downR',status)
+			_recursevlyDiagonal(type,position,'downL',status)
 		
-		if (position % 8 != 1 and position % 8 != 2) and position > 8:#night right up
-			if isClear(colortype,position - 10):
-				GlobalVariables.status[str(position - 10)] = status
-		
-		if position % 8 != 0 and position < 56:#right night down
-			if isClear(colortype,position + 10):
-				GlobalVariables.status[str(position + 10)] = status
-		
-		if (position % 8 != 1 and position % 8 != 2) and position < 56:#night left down
-			if isClear(colortype,position + 6):
-				GlobalVariables.status[str(position + 6)] = status
-		
-		if position % 8 != 0 and position < 48:#night down right
-			if isClear(colortype,position + 17):
-				GlobalVariables.status[str(position + 17)] = status
-		
-		if (position % 8 != 1 and position % 8 != 2) and position < 48:
-			if isClear(colortype,position + 15):
-				GlobalVariables.status[str(position + 15)] = status
+		'k','K':#king
+			var colortype = "BL"
+			if type == 'K': colortype = 'W'
+			if position >= 8:#king movement up
+				if isClear(colortype,position -8):
+					GlobalVariables.status[str(position - 8)] = status
+			if position <= 56:#king movement down
+					if isClear(colortype,position +8):
+						GlobalVariables.status[str(position + 8)] = status
+			if !(position in stopAtLeft):#king movement left
+					if isClear(colortype,position -1):
+						GlobalVariables.status[str(position - 1)] = status
+			if !(position in stopAtLeft) and position >= 8:#king movement left up
+					if isClear(colortype,position -9):
+						GlobalVariables.status[str(position - 9)] = status
+			if !(position in stopAtLeft) and position <= 56:#king movement left up
+				if isClear(colortype,position + 9):
+					GlobalVariables.status[str(position + 9)] = status
+			if !(position in rightBoundaries) and position >= 8:#king movement right up
+					if isClear(colortype,position - 7):
+						GlobalVariables.status[str(position - 7)] = status
+			if !(position in rightBoundaries) and position <= 56:#king movement left down
+					if isClear(colortype,position + 7):
+						GlobalVariables.status[str(position + 7)] = status
+			if !(position in rightBoundaries):#king movement right
+					if isClear(colortype,position +1):
+						GlobalVariables.status[str(position + 1)] = status
+	
+		'n','N': #nights
+			var colortype = "BL"
+			if type == 'N': colortype = 'W'
+			if position % 8 != 0 and position > 16: #night up right
+				if isClear(colortype,position - 15):
+					GlobalVariables.status[str(position - 15)] = status
+			
+			if position % 8 != 1 and position > 16:#night up left
+				if isClear(colortype,position - 17):
+					GlobalVariables.status[str(position - 17)] = status
+					
+			if (position % 8 != 7 and position % 8 != 0) and position > 8:#night left up
+				if isClear(colortype,position - 6):
+					GlobalVariables.status[str(position - 6)] = status
+			
+			if (position % 8 != 1 and position % 8 != 2) and position > 8:#night right up
+				if isClear(colortype,position - 10):
+					GlobalVariables.status[str(position - 10)] = status
+			
+			if position % 8 != 0 and position < 55:#right night down
+				if isClear(colortype,position + 10):
+					GlobalVariables.status[str(position + 10)] = status
+			
+			if (position % 8 != 1 and position % 8 != 2) and position < 56:#night left down
+				if isClear(colortype,position + 6):
+					GlobalVariables.status[str(position + 6)] = status
+			
+			if position % 8 != 0 and position < 48:#night down right
+				if isClear(colortype,position + 17):
+					GlobalVariables.status[str(position + 17)] = status
+			
+			if (position % 8 != 1 and position % 8 != 2) and position < 48:
+				if isClear(colortype,position + 15):
+					GlobalVariables.status[str(position + 15)] = status
 	pass
