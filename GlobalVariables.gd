@@ -99,3 +99,9 @@ var globalBoardCubes = {
 }
 
 var GlobalTurn = "White"
+
+func falseAll():
+	print("falseAll")
+	for selectable in status:
+		selectable = false
+	pass

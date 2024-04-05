@@ -27,6 +27,7 @@ metadata/Piece = "r"
 metadata/BelongsTo = &"1"
 metadata/Type = "r"
 metadata/Moves = 0
+metadata/EatenName = "r1"
 
 [node name="2" parent="." instance=ExtResource("4_h18ie")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -15, -3, -21)
@@ -36,6 +37,7 @@ metadata/Piece = "n"
 metadata/Type = "n"
 metadata/Moves = 0
 metadata/BelongsTo = &"3"
+metadata/EatenName = "n1"
 
 [node name="3" parent="." instance=ExtResource("2_811jv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9, -3, -21)
@@ -45,6 +47,7 @@ metadata/Piece = "b"
 metadata/BelongsTo = &"3"
 metadata/Type = "b"
 metadata/Moves = 0
+metadata/EatenName = "b1"
 
 [node name="4" parent="." instance=ExtResource("4_h18ie")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3, -3, -21)
@@ -54,6 +57,7 @@ metadata/Piece = "q"
 metadata/BelongsTo = &"4"
 metadata/Type = "q"
 metadata/Moves = 0
+metadata/EatenName = "q"
 
 [node name="5" parent="." instance=ExtResource("2_811jv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 3, -3, -21)
@@ -63,6 +67,7 @@ metadata/Piece = "k"
 metadata/BelongsTo = &"5"
 metadata/Type = "k"
 metadata/Moves = 0
+metadata/EatenName = "k"
 
 [node name="6" parent="." instance=ExtResource("4_h18ie")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 9, -3, -21)
@@ -72,6 +77,7 @@ metadata/Piece = "b"
 metadata/BelongsTo = &"6"
 metadata/Type = "b"
 metadata/Moves = 0
+metadata/EatenName = "b2"
 
 [node name="7" parent="." instance=ExtResource("2_811jv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15, -3, -21)
@@ -81,6 +87,7 @@ metadata/Piece = "n"
 metadata/Type = "n"
 metadata/Moves = 0
 metadata/BelongsTo = &"7"
+metadata/EatenName = "n2"
 
 [node name="8" parent="." instance=ExtResource("4_h18ie")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 21, -3, -21)
@@ -90,6 +97,7 @@ metadata/Piece = "r"
 metadata/BelongsTo = &"8"
 metadata/Type = "r"
 metadata/Moves = 0
+metadata/EatenName = "r2"
 
 [node name="9" parent="." instance=ExtResource("4_h18ie")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -21, -3, -15)
@@ -99,6 +107,7 @@ metadata/Piece = "p"
 metadata/BelongsTo = &"9"
 metadata/Type = "p"
 metadata/Moves = 0
+metadata/EatenName = "p1"
 
 [node name="10" parent="." instance=ExtResource("2_811jv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -15, -3, -15)
@@ -108,6 +117,7 @@ metadata/Piece = "p"
 metadata/BelongsTo = &"10"
 metadata/Type = "p"
 metadata/Moves = 0
+metadata/EatenName = "p2"
 
 [node name="11" parent="." instance=ExtResource("4_h18ie")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9, -3, -15)
@@ -117,6 +127,7 @@ metadata/Piece = "p"
 metadata/BelongsTo = &"11"
 metadata/Type = "p"
 metadata/Moves = 0
+metadata/EatenName = "p3"
 
 [node name="12" parent="." instance=ExtResource("2_811jv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3, -3, -15)
@@ -126,6 +137,7 @@ metadata/Piece = "p"
 metadata/BelongsTo = &"12"
 metadata/Type = "p"
 metadata/Moves = 0
+metadata/EatenName = "p4"
 
 [node name="13" parent="." instance=ExtResource("4_h18ie")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 3, -3, -15)
@@ -135,6 +147,7 @@ metadata/Piece = "p"
 metadata/BelongsTo = &"13"
 metadata/Type = "p"
 metadata/Moves = 0
+metadata/EatenName = "p5"
 
 [node name="14" parent="." instance=ExtResource("2_811jv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 9, -3, -15)
@@ -144,6 +157,7 @@ metadata/Piece = "p"
 metadata/BelongsTo = &"14"
 metadata/Type = "p"
 metadata/Moves = 0
+metadata/EatenName = "p6"
 
 [node name="15" parent="." instance=ExtResource("4_h18ie")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15, -3, -15)
@@ -153,6 +167,7 @@ metadata/Piece = "p"
 metadata/BelongsTo = &"15"
 metadata/Type = "p"
 metadata/Moves = 0
+metadata/EatenName = "p7"
 
 [node name="16" parent="." instance=ExtResource("2_811jv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 21, -3, -15)
@@ -162,6 +177,7 @@ metadata/Piece = "p"
 metadata/BelongsTo = &"16"
 metadata/Type = "p"
 metadata/Moves = 0
+metadata/EatenName = "p8"
 
 [node name="17" parent="." instance=ExtResource("2_811jv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -21, -3, -9)
@@ -299,6 +315,7 @@ metadata/Piece = "P"
 metadata/BelongsTo = &"49"
 metadata/Type = "P"
 metadata/Moves = 0
+metadata/EatenName = "P1"
 
 [node name="50" parent="." instance=ExtResource("4_h18ie")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -15, -3, 15)
@@ -308,6 +325,7 @@ metadata/Piece = "P"
 metadata/BelongsTo = &"50"
 metadata/Type = "P"
 metadata/Moves = 0
+metadata/EatenName = "P2"
 
 [node name="51" parent="." instance=ExtResource("2_811jv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9, -3, 15)
@@ -317,6 +335,7 @@ metadata/Piece = "P"
 metadata/BelongsTo = &"51"
 metadata/Type = "P"
 metadata/Moves = 0
+metadata/EatenName = "P3"
 
 [node name="52" parent="." instance=ExtResource("4_h18ie")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3, -3, 15)
@@ -326,6 +345,7 @@ metadata/Piece = "P"
 metadata/BelongsTo = &"52"
 metadata/Type = "P"
 metadata/Moves = 0
+metadata/EatenName = "P4"
 
 [node name="53" parent="." instance=ExtResource("2_811jv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 3, -3, 15)
@@ -335,6 +355,7 @@ metadata/Piece = "P"
 metadata/BelongsTo = &"53"
 metadata/Type = "P"
 metadata/Moves = 0
+metadata/EatenName = "P5"
 
 [node name="54" parent="." instance=ExtResource("4_h18ie")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 9, -3, 15)
@@ -344,6 +365,7 @@ metadata/Piece = "P"
 metadata/BelongsTo = &"54"
 metadata/Type = "P"
 metadata/Moves = 0
+metadata/EatenName = "P6"
 
 [node name="55" parent="." instance=ExtResource("2_811jv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15, -3, 15)
@@ -353,6 +375,7 @@ metadata/Piece = "P"
 metadata/BelongsTo = &"55"
 metadata/Type = "P"
 metadata/Moves = 0
+metadata/EatenName = "P7"
 
 [node name="56" parent="." instance=ExtResource("4_h18ie")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 21, -3, 15)
@@ -362,6 +385,7 @@ metadata/Piece = "P"
 metadata/BelongsTo = &"56"
 metadata/Type = "P"
 metadata/Moves = 0
+metadata/EatenName = "P8"
 
 [node name="57" parent="." instance=ExtResource("4_h18ie")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -21, -3, 21)
@@ -371,6 +395,7 @@ metadata/Piece = "R"
 metadata/BelongsTo = &"57"
 metadata/Type = "R"
 metadata/Moves = 0
+metadata/EatenName = "R1"
 
 [node name="58" parent="." instance=ExtResource("2_811jv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -15, -3, 21)
@@ -380,6 +405,7 @@ metadata/Piece = "N"
 metadata/BelongsTo = &"58"
 metadata/Type = "N"
 metadata/Moves = 0
+metadata/EatenName = "N1"
 
 [node name="59" parent="." instance=ExtResource("4_h18ie")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9, -3, 21)
@@ -389,6 +415,7 @@ metadata/Piece = "B"
 metadata/BelongsTo = &"59"
 metadata/Type = "B"
 metadata/Moves = 0
+metadata/EatenName = "B1"
 
 [node name="60" parent="." instance=ExtResource("2_811jv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3, -3, 21)
@@ -398,6 +425,7 @@ metadata/Piece = "Q"
 metadata/BelongsTo = &"60"
 metadata/Type = "Q"
 metadata/Moves = 0
+metadata/EatenName = "Q"
 
 [node name="61" parent="." instance=ExtResource("4_h18ie")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 3, -3, 21)
@@ -407,6 +435,7 @@ metadata/Piece = "K"
 metadata/BelongsTo = &"61"
 metadata/Type = "K"
 metadata/Moves = 0
+metadata/EatenName = "K"
 
 [node name="62" parent="." instance=ExtResource("2_811jv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 9, -3, 21)
@@ -416,6 +445,7 @@ metadata/Piece = "B"
 metadata/BelongsTo = &"62"
 metadata/Type = "B"
 metadata/Moves = 0
+metadata/EatenName = "B2"
 
 [node name="63" parent="." instance=ExtResource("4_h18ie")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15, -3, 21)
@@ -425,14 +455,17 @@ metadata/Piece = "N"
 metadata/BelongsTo = &"63"
 metadata/Type = "N"
 metadata/Moves = 0
+metadata/EatenName = "N2"
 
 [node name="64" parent="." instance=ExtResource("2_811jv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 21, -3, 21)
 metadata/Piece = "R"
 
 [node name="GamePiece" parent="64" instance=ExtResource("11_jlxvu")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1, 0)
 metadata/BelongsTo = &"64"
 metadata/Type = "R"
 metadata/Moves = 0
+metadata/EatenName = "R2"
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

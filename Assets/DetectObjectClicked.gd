@@ -16,15 +16,15 @@ func HandleReprentOfPiece(whatisHeld,closest):
 	GlobalVariables.occupiedBy[str(whatsHeld.get_meta("BelongsTo"))] = ' '
 	
 	#if not clear then need to eat | eating function
-	print("lookinforthis ",GlobalVariables.occupied)
+
 	if GlobalVariables.occupied[closest.name] != ' ':
-		print(closest.name," IS PREGNONT ",GlobalVariables.occupied[closest.name])
-		print(GlobalVariables.occupiedBy[closest.name].global_position)
+
+
 		GlobalVariables.occupiedBy[closest.name].global_position = closest.global_position + Vector3(0,-3,0)
 	
 	#set ovccupied and accupiedby to updated stuff
-	print(closest," ",closest.name)
-	print("SHLOP ",GlobalVariables.occupied)
+
+
 	GlobalVariables.occupied[closest.name] = whatsHeld.get_meta("Type")
 	GlobalVariables.occupiedBy[closest.name] = whatsHeld
 
@@ -37,7 +37,7 @@ func HandleReprentOfPiece(whatisHeld,closest):
 	
 	rpc("toggleTurn")
 	#toggleTurn()
-	print("global ",GlobalVariables.GlobalTurn)
+
 	pass
 
 @rpc("any_peer")
@@ -49,7 +49,6 @@ func toggleTurn():
 			GlobalVariables.GlobalTurn = "White"
 
 func ClearSelectables():
-	print("CLEAR!")
 	for i in range(0,65):
 		GlobalVariables.status[str(i)] = false
 
@@ -57,7 +56,7 @@ func ClearSelectables():
 
 func _input(event): #drag game piece
 	
-	#print("shmash ",multiplayer.is_server())
+
 	var isTurn = (multiplayer.is_server() and GlobalVariables.GlobalTurn == "White") or (!multiplayer.is_server() and GlobalVariables.GlobalTurn == "Black")
 	
 
@@ -72,7 +71,7 @@ func _input(event): #drag game piece
 			if whatisheld[0].get_parent().name == "GamePiece":
 				##_ set location of game piece to cursor
 				while Input.is_action_pressed("LeftMouse"):
-					#print("AHHHHH",_raycast(true),whatisheld) #DEBUG
+
 					if _raycast(true) != null:
 						whatisheld[0].get_parent().global_position = _raycast(true)
 					await get_tree().create_timer(1/60).timeout

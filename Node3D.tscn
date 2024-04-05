@@ -29,9 +29,6 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
 func _on_example_cube_mouse_entered():
@@ -52,8 +49,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+
 
 
 func _on_pressed():
@@ -589,4 +585,5 @@ transform = Transform3D(1, 0, 0, 0, -0.0166497, 0.999861, 0, -0.999861, -0.01664
 [connection signal="text_submitted" from="Camera3D/Control/Chat/Panel/ChatInput" to="Camera3D/Control/Chat" method="_on_chat_input_text_submitted"]
 [connection signal="spawned" from="Camera3D/Control/BoardMultiplayer" to="Camera3D/Control/HostMatch" method="_on_board_multiplayer_spawned"]
 [connection signal="spawned" from="Camera3D/Control/BoardMultiplayer" to="Camera3D/Control/BoardMultiplayer" method="_on_spawned"]
+[connection signal="button_down" from="Camera3D/Control/CheckAll" to="Camera3D/Control/HostMatch" method="_on_check_all_button_down"]
 [connection signal="pressed" from="Camera3D/Control/CheckAll" to="Camera3D/Control/HostMatch" method="_on_button_pressed"]

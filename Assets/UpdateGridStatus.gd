@@ -19,7 +19,7 @@ func _on_rigid_body_3d_mouse_entered():
 	if ownColor.has(self.get_meta("Type")):
 		isAbleToMoveColor = ownColor
 	
-	print("bogos binted ", self.get_meta_list())
+
 	#GlobalVariables.status[self.get_meta("BelongsTo")] = true
 
 	if isAbleToMoveColor == whites and GlobalVariables.GlobalTurn == "White":
@@ -32,8 +32,8 @@ func _on_rigid_body_3d_mouse_entered():
 
 func _on_rigid_body_3d_mouse_exited():
 	#GlobalVariables.status[self.get_meta("BelongsTo")] = false
-	MovesCalculator.calcuateMove(self.get_meta("Type"),self.get_meta("BelongsTo"),self.get_meta("Moves"),false)
-	print("leftMe")
+	print(MovesCalculator.calcuateMove(self.get_meta("Type"),self.get_meta("BelongsTo"),self.get_meta("Moves"),false))
+
 	pass # Replace with function body.
 
 

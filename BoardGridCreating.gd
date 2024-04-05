@@ -41,7 +41,7 @@ func _ready():
 			#if !IsWhiteBool:
 				#newInstance = BGridBlock.instantiate()
 #
-			#print("x:" + str(x) +" z:" +  str(z)+ " piece:" +  $HostMatch/LineEdit.text[n])
+
 			#newInstance.position.x = x
 			#newInstance.position.z = z
 			#newInstance.name = str(mone)
@@ -56,10 +56,10 @@ func _ready():
 
 #func SetPieces():
 	#var GridBlocks = get_tree().get_nodes_in_group("GameGrid")
-	#print(GridBlocks)
+
 	#for block in GridBlocks:
 		#var piece = block.get_meta("Piece")
-		#print(str(block) + block.get_meta("Piece"))
+
 		#GlobalVariables.occupied[str(block.name)] = block.get_meta("Piece")
 		#if block.get_meta("Piece") != ' ':
 			#block.remove_from_group("FreeGameGrid")
@@ -84,8 +84,8 @@ func _on_host_match_pressed():
 	#for block in GridBlocks:
 		#GlobalVariables.occupied[str(block.name)] = block.get_meta("Piece")
 		##if block.get_meta("Piece") != ' ':
-		#GlobalVariables.occupiedBy = {"GAY":"BITCH"}
-		#print("slayasdad")
+
+
 
 	#var GridBlocks = get_tree().get_nodes_in_group("GameGrid")
 	#for Piece in GridPieces:
@@ -95,7 +95,7 @@ func _on_host_match_pressed():
 #@rpc('any_peer')
 #func doEverything():
 	#var pieceInstruction = PieceGenerator($HostMatch/LineEdit.text)
-	#print(PieceGenerator($HostMatch/LineEdit.text))
+
 	#CreateBoard(pieceInstruction)
 	#DocumentBoard()
 	#SetPieces()

@@ -53,13 +53,13 @@ func MoveCamera_on_pressed(): #currently move camera button disabled, uneccesser
 func _on_board_multiplayer_spawned(node):#when board is in scene
 	#define global variables on peer client
 	var GridBlocks = $"../Board".get_children()
-	print("board ",$"../Board".get_children())
+
 	for block in GridBlocks:
 		GlobalVariables.occupied[str(block.name)] = block.get_meta("Piece")
 		if GlobalVariables.occupied[str(block.name)] != ' ':
 			GlobalVariables.occupiedBy[str(block.name)] = block.get_child(3)
 		else: GlobalVariables.occupiedBy[str(block.name)] = ' '
-	print(GridBlocks)
+
 		
 	rpc("updateColor","White")
 	updateColor("White")
@@ -88,25 +88,34 @@ var whites = ['P','R','Q','K','B','N','W']
 var blacks = ['p','r','q','k','b','n','BL']
 
 func _on_button_pressed():#show all possible moves of a color
+	for selectable in GlobalVariables.status:
+		selectable = false
+
+	await get_tree().create_timer(0.1).timeout
+	
 	var checkFor = whites
 	match $"../CheckAll".text:
 		"BLACK":
 			checkFor = blacks
 			$"../CheckAll".text = "WHITE"
 			GlobalVariables.GlobalTurn = "White"
-			print("globl ",GlobalVariables.GlobalTurn)
+
 			
 		"WHITE":
 			checkFor = whites
 			$"../CheckAll".text = "BLACK"
 			GlobalVariables.GlobalTurn = "Black"
-			print("global ",GlobalVariables.GlobalTurn)
-	
+		
 	for pawn in GlobalVariables.occupiedBy:
 		if typeof(GlobalVariables.occupiedBy[pawn]) == 24 and checkFor.has(GlobalVariables.occupiedBy[pawn].get_meta("Type")):
 			var pawnd = GlobalVariables.occupiedBy[pawn]
-			print(pawn," ",pawnd," ",pawnd.get_meta_list())
-			print(pawnd.get_meta("BelongsTo")," ",pawnd.get_meta("Type")," ",pawnd.get_meta("Moves"))
 			MovesCalculator.calcuateMove(pawnd.get_meta("Type"),pawnd.get_meta("BelongsTo"),pawnd.get_meta("Moves"),true)
+	print("CLEAR")
 	pass # Replace with function body.
 
+
+
+func _on_check_all_button_down():
+	GlobalVariables.falseAll()
+	print(GlobalVariables.status)
+	pass # Replace with function body.
